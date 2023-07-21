@@ -24,10 +24,16 @@ namespace Assignment12
                 email = Console.ReadLine();
                 Console.WriteLine("Enter Mobile: ");
                 mobile = Console.ReadLine();
-                Console.WriteLine("**************************");
+                Console.WriteLine("Enter Custom Regex: ");
+                string reg = Console.ReadLine();
+                Console.WriteLine("Enter text to check with custom regex: ");
+                string customtext = Console.ReadLine();
+
                 WordCount(text);
-                MobileValidation(mobile);
                 EmailValidation(email);
+                MobileValidation(mobile);
+                CustomValidation(reg, customtext);
+
             }
             catch (Exception e)
             {
@@ -42,6 +48,7 @@ namespace Assignment12
 
         public static void WordCount(string text)
         {
+            Console.WriteLine("\n***** Word Count *****");
             if(text != "")
             {
                 int count = text.Trim().Split(' ').Length;
@@ -54,7 +61,8 @@ namespace Assignment12
         }
         public static void MobileValidation(string mobile)
         {
-            if(mobile != "")
+            Console.WriteLine("\n***** Mobile Validation *****");
+            if (mobile != "")
             {
                 // MObile NUmber: +91-9876545678
                 string mobilepattern = @"^(\+?\d{1,4}[\s-])?(?!0+\s+,?$)\d{10}\s*,?$";
@@ -79,7 +87,8 @@ namespace Assignment12
         }
         public static void EmailValidation(string email)
         {
-            if(email != "")
+            Console.WriteLine("\n***** Email Validation *****");
+            if (email != "")
             {
                 // Email
                 string emailpattern = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
@@ -100,6 +109,19 @@ namespace Assignment12
             else
             {
                 Console.WriteLine("No Email found");
+            }
+        }
+        public static void CustomValidation(string reg, string customtext)
+        {
+            Console.WriteLine("\n***** Custom Validation *****");
+            Regex regex = new Regex(reg);
+            if (regex.IsMatch(customtext))
+            {
+                Console.WriteLine("Valid");
+            }
+            else
+            {
+                Console.WriteLine("Not Valid");
             }
         }
     }
