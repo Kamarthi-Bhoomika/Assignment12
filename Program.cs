@@ -20,9 +20,9 @@ namespace Assignment12
                 string text, mobile, email;
                 Console.WriteLine("Enter piece of text: ");
                 text = Console.ReadLine();
-                Console.WriteLine("Enter Email: ");
+                Console.WriteLine("Enter Multiple Email address to check: ");
                 email = Console.ReadLine();
-                Console.WriteLine("Enter Mobile: ");
+                Console.WriteLine("Enter multiple Mobile numbers to check: ");
                 mobile = Console.ReadLine();
                 Console.WriteLine("Enter Custom Regex: ");
                 string reg = Console.ReadLine();
